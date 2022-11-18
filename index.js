@@ -5,7 +5,12 @@ const port = 3000;
 const server = http.createServer((req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'text/plain');
-	res.end("Hello");
+	const url = req.url;
+	if (url === "/user") {
+		res.end("Hello User")
+	} else {
+		res.end("Hello All");
+	}
 });
 
 server.listen(port, hostname, () => {
